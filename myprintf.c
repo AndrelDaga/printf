@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			char *x = va_arg(args, char *);
-			
+
 			if (x == NULL)
 			{
 				_putstr("(null)");
