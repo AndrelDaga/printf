@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 
 			_putstr(x);
 			i += 2;
-			num_of_char += _putstr(x);
+			num_of_char += strlen(x);
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
