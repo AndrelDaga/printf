@@ -14,9 +14,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 
-	int i;
-
-	int num_of_char;
+	int i, num_of_char;
 
 	va_start(args, format);
 
@@ -61,6 +59,7 @@ int _printf(const char *format, ...)
 			num_of_char++;
 		}
 	}
+	va_end(args);
 	return (num_of_char);
 }
 
