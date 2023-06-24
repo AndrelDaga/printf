@@ -37,10 +37,17 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			char *x = va_arg(args, char *);
-
-			_putstr(x);
-			i += 2;
-			num_of_char += strlen(x);
+			if (x == NULL)
+			{
+				_putstr("(null)");
+				i += 2;
+			}
+			else
+			{
+				_putstr(x);
+				i += 2;
+				num_of_char += strlen(x);
+			}
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
