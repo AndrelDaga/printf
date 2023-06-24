@@ -6,7 +6,6 @@
 
 int _putchar(char c);
 int _putstr(char *s);
-
 /**
  * _printf - produces output according to a format
  * @format: the format to print
@@ -16,7 +15,7 @@ int _putstr(char *s);
 int _printf(const char *format, ...)
 {
 	va_list args;
-	
+
 	int i;
 
 	int num_of_char;
