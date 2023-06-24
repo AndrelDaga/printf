@@ -4,8 +4,6 @@
 #include <stddef.h>
 #include <string.h>
 
-int _putchar(char c);
-int _putstr(char *s);
 /**
  * _printf - produces output according to a format
  * @format: the format to print
