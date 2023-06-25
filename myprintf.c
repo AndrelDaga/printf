@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * _printf - produces output according to a format
@@ -56,7 +58,7 @@ int _printf(const char *format, ...)
 		{
 			int x = va_arg(args, int);
 
-			write(1, &x, sizeof(int));
+			_putint(x);
 			i += 2;
 			num_of_char++;
 		}
@@ -96,3 +98,15 @@ int _putstr(char *s)
 	return (s_len);
 }
 
+void _putint(int x)
+{
+	int num;
+	size_t length;
+	char *buffer;
+	num = snprintf(NULL, 0, "%d", x);
+	buffer = malloc(sizeof(char) * (num + 1));
+	length = strlen(buffer);
+	sprintf(buffer, "%d", x);
+	write(1, buffer, length);
+	free(buffer);
+}
