@@ -54,7 +54,9 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
 		{
-			_putchar(format[i]);
+			int x = va_arg(args, int);
+
+			write(1, &x, sizeof(int));
 			i += 2;
 			num_of_char++;
 		}
@@ -93,3 +95,4 @@ int _putstr(char *s)
 	write(1, s, sizeof(char) * s_len);
 	return (s_len);
 }
+
