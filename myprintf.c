@@ -52,6 +52,12 @@ int _printf(const char *format, ...)
 			i += 2;
 			num_of_char++;
 		}
+		else if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+		{
+			_putchar(format[i]);
+			i += 2;
+			num_of_char++;
+		}
 		else
 		{
 			_putchar(format[i]);
