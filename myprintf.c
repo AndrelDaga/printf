@@ -98,13 +98,10 @@ int _putstr(char *s)
 	return (s_len);
 }
 
-void _putint(int x)
+int _putint(int x)
 {
-	size_t length, num;
-	char *buffer;
+	size_t  num;
 	num = strlen(inttostr(x));
-	buffer = malloc(sizeof(char) * (num + 1));
-	length = strlen(buffer);
-	write(1, buffer, length);
-	free(buffer);
+	write(1, inttostr(x), num);
+	return (num);
 }

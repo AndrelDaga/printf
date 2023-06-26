@@ -23,7 +23,7 @@ char *inttostr(int num)
 
 	str1 = malloc(sizeof(char) * (len + 1));
 
-	for (i = len - 1; i >= 0; i--)//for making the string  
+	for (i = len - 1; i >= 0; i--) 
 	{
 		digit = tmp2 % 10;
         tmp2 /= 10;
@@ -43,14 +43,4 @@ char *inttostr(int num)
 	{
 		return (str1);
 	}
-}
-
-int main()
-{
-	char *copy;
-	int test = 452457;
-	copy = inttostr(test);
-	printf("%s",copy);
-	free(copy);
-	return (0);
 }
