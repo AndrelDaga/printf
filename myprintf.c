@@ -100,13 +100,11 @@ int _putstr(char *s)
 
 void _putint(int x)
 {
-	int num;
-	size_t length;
+	size_t length, num;
 	char *buffer;
-	num = snprintf(NULL, 0, "%d", x);
+	num = strlen(inttostr(x));
 	buffer = malloc(sizeof(char) * (num + 1));
 	length = strlen(buffer);
-	sprintf(buffer, "%d", x);
 	write(1, buffer, length);
 	free(buffer);
 }
