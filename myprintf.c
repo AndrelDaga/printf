@@ -60,7 +60,7 @@ int _printf(const char *format, ...)
 
 			_putint(x);
 			i += 2;
-			num_of_char++;
+			num_of_char = x < 0 ? num_of_char + strlen(inttostr(x)) + 1 : num_of_char + strlen(inttostr(x));
 		}
 		else
 		{
