@@ -4,7 +4,6 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
 
 /**
@@ -104,8 +103,8 @@ void _putint(int x)
 	int num;
 	size_t length;
 	char *buffer;
-	num = 1000; 
-	buffer = malloc(sizeof(char) * num);
+	num = snprintf(NULL, 0, "%d", x);
+	buffer = malloc(sizeof(char) * (num + 1));
 	length = strlen(buffer);
 	sprintf(buffer, "%d", x);
 	write(1, buffer, length);
