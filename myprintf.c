@@ -101,7 +101,10 @@ int _putstr(char *s)
 int _putint(int x)
 {
 	size_t  num;
+	char *buffer;
 	num = strlen(inttostr(x));
-	write(1, inttostr(x), num);
+	buffer = malloc(sizeof(char) * num);
+	strcpy(buffer, inttostr(x));
+	write(1, buffer, num);
 	return (num);
 }
