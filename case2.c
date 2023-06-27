@@ -3,9 +3,9 @@
 #include <stddef.h>
 /**
  * case_bi - entry point
- * @i:
- * @n_c:
- * @args:
+ * @i: current iteration
+ * @n_c: number of char
+ * @args: arguments
  * Return: nothing
  **/
 

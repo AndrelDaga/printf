@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 	int i, num_of_char;
 
 	va_start(args, format);
-
 	i = 0;
 	num_of_char = 0;
 	while (format[i] != '\0')
@@ -36,9 +35,7 @@ int _printf(const char *format, ...)
 			case '%':
 				case_mod(format, &i, &num_of_char);
 				break;
-
-			case 'd':
-			case 'i':
+			case 'i' || 'd':
 				case_int(args, &i, &num_of_char);
 				break;
 			case 'b':
