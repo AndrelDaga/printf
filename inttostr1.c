@@ -26,7 +26,12 @@ char *inttostr(int num)
 	}
 
 	str1 = malloc(sizeof(char) * (len + 1));
-
+	if (str1 == 0)
+	{
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
 	for (i = len - 1; i >= 0; i--)
 	{
 		digit = tmp2 % 10;
@@ -47,5 +52,6 @@ char *inttostr(int num)
 	else
 	{
 		return (str1);
+	}
 	}
 }
