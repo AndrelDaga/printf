@@ -1,4 +1,4 @@
-#include<stdlib.h>
+#include <stdlib.h>
 #include "main.h"
 #include <string.h>
 /**
@@ -7,7 +7,7 @@
  * Return: string
  **/
 char *numtobi(size_t num)
-{  
+{
 	int n, i, x;
 	size_t c;
 	char *bi, *rev;
@@ -15,28 +15,26 @@ char *numtobi(size_t num)
 	c = num;
 	n = 0;
 
-	for(x = 0; c>0; x++)    
-	{        
-		c = c / 2;    
-	} 
+	for (x = 0; c > 0; x++)
+	{
+		c = c / 2;
+	}
 
-	bi = malloc(sizeof(char) * (x+1));
-	rev = malloc(sizeof(char) * (x+1));
+	bi = malloc(sizeof(char) * (x + 1));
+	rev = malloc(sizeof(char) * (x + 1));
 
-	for(i = 0; num > 0; i++)    
-	{    
-		rev[i] = (num % 2) + '0';    
+	for (i = 0; num > 0; i++)
+	{
+		rev[i] = (num % 2) + '0';
 		num = num / 2;
 	}
-	for(i = i - 1;i >= 0; i--)    
-	{    
-		bi[n] = rev[i]; 
-		n++;   
-	}  
-	free(rev); 
+	for (i = i - 1; i >= 0; i--)
+	{
+		bi[n] = rev[i];
+		n++;
+	}
+	free(rev);
 	bi[x + 1] = '\0';
 
 	return (bi);
-
 }
-

@@ -83,7 +83,7 @@ void case_int(va_list args, int *i, int *n_c)
 }
 
 /**
- * case_default - handles a case in a switch statement for mod char
+ * case_default - print default char not format specifier
  * @format: the format passed to printf
  * @i: current iteration of the loop
  * @n_c: current character count

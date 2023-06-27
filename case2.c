@@ -7,11 +7,12 @@
  * @n_c:
  * @args:
  * Return: nothing
- **/ 
+ **/
 
 void case_bi(va_list args, int *i, int *n_c)
 {
 	int u;
+
 	u = va_arg(args, int);
 	_putstr(numtobi(u));
 	(*i) += 2;
