@@ -14,7 +14,6 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-
 	int i, num_of_char;
 
 	va_start(args, format);
@@ -35,7 +34,8 @@ int _printf(const char *format, ...)
 			case '%':
 				case_mod(format, &i, &num_of_char);
 				break;
-			case 'i' || 'd':
+			case 'i':
+			case 'd':
 				case_int(args, &i, &num_of_char);
 				break;
 			case 'b':
