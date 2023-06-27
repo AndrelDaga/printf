@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * _printf - produces output according to a format
  * @format: the format to print
@@ -24,55 +23,37 @@ int _printf(const char *format, ...)
 	num_of_char = 0;
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == 'c')
+		if (format[i] == '%')
 		{
-			char x = va_arg(args, int);
-
-			_putchar(x);
-			i += 2;
-			num_of_char++;
-		}
-		else if (format[i] == '%' && format[i + 1] == 's')
-		{
-			char *x = va_arg(args, char *);
-
-			if (x == NULL)
+			switch (format[i + 1])
 			{
-				_putstr("(null)");
-				i += 2;
-			}
-			else
-			{
-				_putstr(x);
-				i += 2;
-				num_of_char += strlen(x);
-			}
-		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-		{
-			_putchar(format[i]);
-			i += 2;
-			num_of_char++;
-		}
-		else if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
-		{
-			int x = va_arg(args, int);
+			case 'c':
+				case_char(args, &i, &num_of_char);
+				break;
+			case 's':
+				case_str(args, &i, &num_of_char);
+				break;
+			case '%':
+				case_mod(format, &i, &num_of_char);
+				break;
 
-			_putint(x);
-			i += 2;
-			num_of_char = x < 0 ? num_of_char + strlen(inttostr(x)) + 1 : num_of_char + strlen(inttostr(x));
+			case 'd':
+			case 'i':
+				case_int(args, &i, &num_of_char);
+				break;
+			default:
+				case_default(format, &i, &num_of_char);
+				break;
+			}
 		}
 		else
 		{
-			_putchar(format[i]);
-			i++;
-			num_of_char++;
+			case_default(format, &i, &num_of_char);
 		}
 	}
 	va_end(args);
 	return (num_of_char);
 }
-
 /**
  * _putchar - prints a character
  * @c: the character to print
@@ -98,10 +79,17 @@ int _putstr(char *s)
 	return (s_len);
 }
 
+/**
+ * _putint - prints an integer
+ * @x: the integer to print
+ *
+ * Return: int
+ */
 int _putint(int x)
 {
-	size_t  num;
+	int num;
 	char *buffer;
+
 	num = strlen(inttostr(x));
 	buffer = malloc(sizeof(char) * num);
 	strcpy(buffer, inttostr(x));
