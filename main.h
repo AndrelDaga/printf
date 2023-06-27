@@ -3,6 +3,7 @@
 #include <stdarg.h>
 int _printf(const char *format, ...);
 int _putchar(char c);
+char *numtobi(int num);
 char *inttostr(int num);
 int _putstr(char *s);
 int _putint(int x);
