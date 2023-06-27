@@ -92,7 +92,14 @@ int _putint(int x)
 
 	num = strlen(inttostr(x));
 	buffer = malloc(sizeof(char) * num);
+	if (buffer == 0)
+	{
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
 	strcpy(buffer, inttostr(x));
 	write(1, buffer, num);
 	return (num);
+	}
 }
