@@ -41,6 +41,9 @@ int _printf(const char *format, ...)
 			case 'i':
 				case_int(args, &i, &num_of_char);
 				break;
+			case 'b':
+				case_bi(args, &i, &num_of_char);
+				break;
 			default:
 				case_default(format, &i, &num_of_char);
 				break;
