@@ -9,7 +9,7 @@
  * Return: nothing
  **/ 
 
-void case_bi(va_list args, int *i, size_t *n_c)
+void case_bi(va_list args, int *i, int *n_c)
 {
 	int u;
 	u = va_arg(args, int);
