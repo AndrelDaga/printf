@@ -1,9 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
+#include <stddef.h>
 int _printf(const char *format, ...);
 int _putchar(char c);
-char *numtobi(int num);
+char *numtobi(size_t num);
 char *inttostr(int num);
 int _putstr(char *s);
 int _putint(int x);
