@@ -22,7 +22,12 @@ char *numtobi(size_t num)
 
 	bi = malloc(sizeof(char) * (x + 1));
 	rev = malloc(sizeof(char) * (x + 1));
-
+	if (bi == 0 || rev == 0)
+	{
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
 	for (i = 0; num > 0; i++)
 	{
 		rev[i] = (num % 2) + '0';
@@ -37,4 +42,5 @@ char *numtobi(size_t num)
 	bi[x + 1] = '\0';
 
 	return (bi);
+	}
 }
